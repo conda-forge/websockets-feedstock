@@ -20,14 +20,16 @@ applications.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/websockets-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/websockets-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/websockets-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/websockets-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/websockets-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/websockets-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/websockets-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/websockets-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/websockets-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/websockets-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/websockets-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/websockets-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/websockets/badges/version.svg)](https://anaconda.org/conda-forge/websockets)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/websockets/badges/downloads.svg)](https://anaconda.org/conda-forge/websockets)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-websockets-green.svg)](https://anaconda.org/conda-forge/websockets) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/websockets.svg)](https://anaconda.org/conda-forge/websockets) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/websockets.svg)](https://anaconda.org/conda-forge/websockets) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/websockets.svg)](https://anaconda.org/conda-forge/websockets) |
 
 Installing websockets
 =====================
