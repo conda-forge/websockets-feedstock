@@ -1,6 +1,6 @@
 {% set name = "websockets" %}
-{% set version = "5.0.1" %}
-{% set sha256 = "e1e1c1213016c6ab71f7a5affd8f3a51bfb87089a72ad8216fe558c5572892c3" %}
+{% set version = "6.0" %}
+{% set sha256 = "47bcad3e017925f8688512b4efa760807bf604a939c50c2926c40b0021247cf0" %}
 
 package:
   name: {{ name|lower }}
