@@ -1,25 +1,24 @@
-{% set name = "websockets" %}
 {% set version = "7.0" %}
-{% set sha256 = "39391d6d8eb1d3973fc104f32df54de653e3d7aa89584a43c761a1b5cb8ed74d" %}
 
 package:
-  name: {{ name|lower }}
+  name: websockets
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/aaugustin/websockets/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/w/websockets/websockets-{{ version }}.tar.gz
+  sha256: 08e3c3e0535befa4f0c4443824496c03ecc25062debbcf895874f8a0b4c97c9f
 
 build:
-  number: 1000
-  script: python setup.py install --single-version-externally-managed --record record.txt
-  skip: True  # [py2k]
+  number: 1001
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+  skip: True  # [py<34]
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
-    - setuptools
+    - pip
   run:
     - python
 
@@ -29,7 +28,7 @@ test:
 
 about:
   home: https://websockets.readthedocs.io/en/stable/index.html
-  license: BSD 3-clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: 'A library for developing WebSocket servers and clients in Python.'
@@ -46,3 +45,4 @@ about:
 extra:
   recipe-maintainers:
     - scopatz
+    - ocefpaf
