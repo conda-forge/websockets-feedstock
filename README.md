@@ -3,7 +3,7 @@ About websockets
 
 Home: https://websockets.readthedocs.io/en/stable/index.html
 
-Package license: BSD 3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
