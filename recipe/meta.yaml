@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/aaugustin/websockets/archive/{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/w/websockets/websockets-{{ version }}.tar.gz
   sha256: 08e3c3e0535befa4f0c4443824496c03ecc25062debbcf895874f8a0b4c97c9f
 
 build:
