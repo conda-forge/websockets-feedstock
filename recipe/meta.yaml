@@ -1,4 +1,4 @@
-{% set version = "7.0" %}
+{% set version = "5.0.1" %}
 
 package:
   name: websockets
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/websockets/websockets-{{ version }}.tar.gz
-  sha256: 08e3c3e0535befa4f0c4443824496c03ecc25062debbcf895874f8a0b4c97c9f
+  sha256: a49d315db5a7a19d55422e1678e8a1c3b9661d7296bef3179fa620cf80b12674
 
 build:
-  number: 1001
+  number: 1000
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
   skip: True  # [py<34]
 
