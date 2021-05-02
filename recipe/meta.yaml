@@ -1,4 +1,4 @@
-{% set version = "8.1" %}
+{% set version = "9.0.1" %}
 
 package:
   name: websockets
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/websockets/websockets-{{ version }}.tar.gz
-  sha256: 5c65d2da8c6bce0fca2528f69f44b2f977e06954c8512a952222cea50dad430f
+  sha256: 2ab64e9fd18e57a66b63a8774e337d81d6366412bef65c7d71f87ad5c4faeed5
 
 build:
-  number: 3
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
-  skip: True  # [py<34]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+  skip: true  # [py<34]
 
 requirements:
   build:
@@ -33,7 +33,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'A library for developing WebSocket servers and clients in Python.'
+  summary: A library for developing WebSocket servers and clients in Python.
   description: |
     websockets is a library for developing WebSocket servers and clients in
     Python. It implements RFC 6455 with a focus on correctness and simplicity.
