@@ -1,4 +1,4 @@
-{% set version = "10.1" %}
+{% set version = "10.2" %}
 
 package:
   name: websockets
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/websockets/websockets-{{ version }}.tar.gz
-  sha256: 181d2b25de5a437b36aefedaf006ecb6fa3aa1328ec0236cdde15f32f9d3ff6d
+  sha256: 8351c3c86b08156337b0e4ece0e3c5ec3e01fcd14e8950996832a23c99416098
 
 build:
   number: 0
