@@ -1,4 +1,4 @@
-{% set version = "12.0" %}
+{% set version = "13.0" %}
 
 package:
   name: websockets
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/websockets/websockets-{{ version }}.tar.gz
-  sha256: 81df9cbcbb6c260de1e007e58c011bfebe2dafc8435107b0537f393dd38c8b1b
+  sha256: b7bf950234a482b7461afdb2ec99eee3548ec4d53f418c7990bb79c620476602
 
 build:
   number: 0
@@ -18,6 +18,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
