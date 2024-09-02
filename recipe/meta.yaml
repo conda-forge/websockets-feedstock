@@ -10,7 +10,7 @@ source:
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation 
   skip: true  # [py<37]
 
 requirements:
@@ -21,6 +21,7 @@ requirements:
     - {{ stdlib("c") }}
   host:
     - python
+    - setuptools
     - pip
   run:
     - python
