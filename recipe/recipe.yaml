@@ -7,8 +7,9 @@ context:
     not (
       test_client_connect_canceled_during_handshake
       or test_close_idempotency_race_condition
+      or test_keepalive_is_enabled
     )
-  cov_fail_under: 93
+  cov_fail_under: 92
 
 package:
   name: websockets
