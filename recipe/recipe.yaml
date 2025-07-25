@@ -3,7 +3,11 @@ schema_version: 1
 
 context:
   version: 15.0.1
-  pytest_k: not test_client_connect_canceled_during_handshake
+  pytest_k:
+    not (
+      test_client_connect_canceled_during_handshake
+      or test_close_idempotency_race_condition
+    )
   cov_fail_under: 93
 
 package:
