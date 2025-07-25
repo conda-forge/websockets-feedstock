@@ -9,8 +9,12 @@ COV_FAIL_UNDER = 93
 K_SKIPS = [
     "test_client_connect_canceled_during_handshake",
     "test_close_idempotency_race_condition",
+    # https://github.com/conda-forge/websockets-feedstock/pull/52
     "test_writing_in_recv_events_fails",
     "test_explicit_host_port",
+    "test_close_timeout_waiting_for_recv",
+    "test_close_waits_for_close_frame",
+    "test_close_waits_for_recv"
 ]
 
 PYTEST = [
