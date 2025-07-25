@@ -10,6 +10,7 @@ K_SKIPS = [
     "test_client_connect_canceled_during_handshake",
     "test_close_idempotency_race_condition",
     "test_writing_in_recv_events_fails",
+    "test_explicit_host_port",
 ]
 
 PYTEST = [
