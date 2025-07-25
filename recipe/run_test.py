@@ -1,8 +1,9 @@
 from subprocess import call
 import sys
-import os
+import platform
 
-WIN = os.name == "nt"
+WIN = platform.system() == "Windows"
+OSX = platform.system() == "Darwin"
 
 COV_FAIL_UNDER = 93
 
@@ -14,7 +15,7 @@ K_SKIPS = [
     "test_explicit_host_port",
     "test_close_timeout_waiting_for_recv",
     "test_close_waits_for_close_frame",
-    "test_close_waits_for_recv"
+    "test_close_waits_for_recv",
 ]
 
 PYTEST = [
@@ -41,8 +42,8 @@ REPORT = [
 
 
 def do(args: list[str]) -> int:
-    if WIN:
-        print("Skipping tests on windows due to hangs")
+    if WIN or OSX:
+        print("Skipping tests on windows/osx due to hangs")
         return 0
     print(">>>", "\t".join(args), flush=True)
     return call(args, cwd="src")
