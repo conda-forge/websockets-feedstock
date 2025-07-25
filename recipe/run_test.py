@@ -11,14 +11,16 @@ K_SKIPS = [
 ]
 
 PYTEST = [
-    "coveragerun",
+    "coverage",
+    "run",
     "--source=websockets",
     "--branch",
     "-m",
     "pytest",
     "-vv",
     "--tb=long",
-    "--color=yes-k",
+    "--color=yes",
+    "-k",
     f"""not ({" or ".join(K_SKIPS)})""",
 ]
 
