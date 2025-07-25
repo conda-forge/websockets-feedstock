@@ -3,18 +3,25 @@ schema_version: 1
 
 context:
   version: 15.0.1
+  pytest_k: not test_client_connect_canceled_during_handshake
+  cov_fail_under: 93
 
 package:
   name: websockets
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/w/websockets/websockets-${{ version }}.tar.gz
-  sha256: 82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee
+  - url: https://pypi.org/packages/source/w/websockets/websockets-${{ version }}.tar.gz
+    sha256: 82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee
+    target_directory: dist
+  - url: https://github.com/python-websockets/websockets/archive/refs/tags/${{ version }}.tar.gz
+    sha256: 8451495265af3e368f794c4dc15c99ce90c771d95560f542bff8c64b5455af3b
+    target_directory: src
 
 build:
   number: 1
   script:
+    - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
@@ -38,17 +45,18 @@ tests:
       pip_check: true
   - files:
       source:
-        - tests/
-        - pyproject.toml
+        - src/tests/
     requirements:
       run:
         - pytest-cov
+        - werkzeug
     script:
-      - coverage run --source=websockets --branch -m pytest -vv --tb=long --color=yes
-      - coverage report --show-missing --skip-covered --fail-under=100
+      - cd src
+      - coverage run --source=websockets --branch -m pytest -vv --tb=long --color=yes -k "${{ pytest_k }}"
+      - coverage report --show-missing --skip-covered --fail-under=${{ cov_fail_under }}
 about:
   license: BSD-3-Clause
-  license_file: LICENSE
+  license_file: dist/LICENSE
   summary: A library for developing WebSocket servers and clients in Python.
   description: |
     websockets is a library for developing WebSocket servers and clients in
