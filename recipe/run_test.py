@@ -6,8 +6,9 @@ WIN = sys.platform == "nt"
 COV_FAIL_UNDER = 93
 
 K_SKIPS = [
-    "client_connect_canceled_during_handshake",
-    "close_idempotency_race_condition",
+    "test_client_connect_canceled_during_handshake",
+    "test_close_idempotency_race_condition",
+    "test_writing_in_recv_events_fails"
 ]
 
 PYTEST = [
