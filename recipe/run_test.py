@@ -5,7 +5,7 @@ WIN = sys.platform == "nt"
 
 COV_FAIL_UNDER = 93
 
-K_SKIPS: list[str] = [
+K_SKIPS = [
     "client_connect_canceled_during_handshake",
     "close_idempotency_race_condition",
 ]
@@ -31,7 +31,7 @@ REPORT = [
 ]
 
 
-def do(*args):
+def do(args: list[str]) -> int:
     if WIN:
         print("Skipping tests on windows due to hangs")
         return 0
