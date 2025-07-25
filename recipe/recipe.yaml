@@ -51,12 +51,12 @@ tests:
         - pytest-cov
         - werkzeug
     script:
-      # lots of fails, hangs on windows
       - if: unix
-        then:
-          - cd src
-          - coverage run --source=websockets --branch -m pytest -vv --tb=long --color=yes -k "${{ pytest_k }}"
-          - coverage report --show-missing --skip-covered --fail-under=${{ cov_fail_under }}
+        then: cd src
+      - if: unix
+        then: coverage run --source=websockets --branch -m pytest -vv --tb=long --color=yes -k "${{ pytest_k }}"
+      - if: unix
+        then: coverage report --show-missing --skip-covered --fail-under=${{ cov_fail_under }}
 about:
   license: BSD-3-Clause
   license_file: dist/LICENSE
