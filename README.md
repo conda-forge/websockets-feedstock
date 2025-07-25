@@ -20,7 +20,6 @@ standard asynchronous I/O framework, it provides a straightforward API
 based on coroutines, making it easy to write highly concurrent
 applications.
 
-
 Current build status
 ====================
 
@@ -377,6 +376,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 * [@scopatz](https://github.com/scopatz/)
 
