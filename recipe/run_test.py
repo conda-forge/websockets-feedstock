@@ -1,14 +1,15 @@
 from subprocess import call
 import sys
+import os
 
-WIN = sys.platform == "nt"
+WIN = os.name == "nt"
 
 COV_FAIL_UNDER = 93
 
 K_SKIPS = [
     "test_client_connect_canceled_during_handshake",
     "test_close_idempotency_race_condition",
-    "test_writing_in_recv_events_fails"
+    "test_writing_in_recv_events_fails",
 ]
 
 PYTEST = [
