@@ -7,9 +7,12 @@ build_platform:
 conda_build:
   pkg_format: '2'
 conda_forge_output_validation: true
+conda_build_tool: rattler-build
 github:
   branch_name: main
   tooling_branch_name: main
+# no linux-ppc64le
+# conda_install_tool: pixi
 provider:
   linux_aarch64: default
   linux_ppc64le: default

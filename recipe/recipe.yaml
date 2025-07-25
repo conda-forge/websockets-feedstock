@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: 15.0.1
+
+package:
+  name: websockets
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/w/websockets/websockets-${{ version }}.tar.gz
+  sha256: 82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee
+
+build:
+  number: 1
+  script:
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+
+requirements:
+  build:
+    - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+  host:
+    - pip
+    - python
+    - setuptools
+  run:
+    - python
+
+tests:
+  - python:
+      imports: websockets
+      pip_check: true
+  - files:
+      source:
+        - tests/
+        - pyproject.toml
+    requirements:
+      run:
+        - pytest-cov
+    script:
+      - coverage run --source=websockets --branch -m pytest -vv --tb=long --color=yes
+      - coverage report --show-missing --skip-covered --fail-under=100
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: A library for developing WebSocket servers and clients in Python.
+  description: |
+    websockets is a library for developing WebSocket servers and clients in
+    Python. It implements RFC 6455 with a focus on correctness and simplicity.
+    It passes the Autobahn Testsuite. Built on top of asyncio, Python's
+    standard asynchronous I/O framework, it provides a straightforward API
+    based on coroutines, making it easy to write highly concurrent
+    applications.
+  homepage: https://websockets.readthedocs.io/en/stable/index.html
+  repository: https://github.com/aaugustin/websockets
+  documentation: https://websockets.readthedocs.io/en/stable/index.html
+
+extra:
+  recipe-maintainers:
+    - scopatz
+    - ocefpaf
+    - bollwyvl
