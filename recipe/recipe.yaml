@@ -41,17 +41,19 @@ tests:
   - python:
       imports: websockets
       pip_check: true
-  - files:
-      source:
-        - src/tests/
-      recipe:
-        - run_test.py
-    requirements:
-      run:
-        - pytest-cov
-        - werkzeug
-    script:
-      - python run_test.py
+  - if: target_platform == "linux-64"
+    then:
+      files:
+        source:
+          - src/tests/
+        recipe:
+          - run_test.py
+      requirements:
+        run:
+          - pytest-cov
+          - werkzeug
+      script:
+        - python run_test.py
 
 about:
   license: BSD-3-Clause

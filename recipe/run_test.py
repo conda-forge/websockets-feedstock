@@ -1,9 +1,6 @@
 from subprocess import call
 import sys
-import platform
 
-WIN = platform.system() == "Windows"
-OSX = platform.system() == "Darwin"
 
 COV_FAIL_UNDER = 93
 
@@ -43,9 +40,6 @@ REPORT = [
 
 
 def do(args: list[str]) -> int:
-    if WIN or OSX:
-        print("Skipping tests on windows/osx due to hangs")
-        return 0
     print(">>>", "\t".join(args), flush=True)
     return call(args, cwd="src")
 
