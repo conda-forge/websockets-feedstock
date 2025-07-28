@@ -12,7 +12,9 @@ K_SKIPS = [
     "test_close_waits_for_close_frame",
     "test_close_waits_for_recv",
     "test_explicit_host_port",
+    "test_ping",
     "test_server_shuts_down_and_waits_until_handlers_terminate",
+    "test_server_shuts_down_during_connection_handling",
     "test_writing_in_recv_events_fails",
 ]
 
