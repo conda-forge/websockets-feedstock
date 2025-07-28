@@ -1,14 +1,20 @@
 from subprocess import call
 import sys
-import os
 
-WIN = os.name == "nt"
 
 COV_FAIL_UNDER = 93
 
 K_SKIPS = [
     "test_client_connect_canceled_during_handshake",
     "test_close_idempotency_race_condition",
+    # https://github.com/conda-forge/websockets-feedstock/pull/52
+    "test_close_timeout_waiting_for_recv",
+    "test_close_waits_for_close_frame",
+    "test_close_waits_for_recv",
+    "test_explicit_host_port",
+    "test_ping",
+    "test_server_shuts_down_and_waits_until_handlers_terminate",
+    "test_server_shuts_down_during_connection_handling",
     "test_writing_in_recv_events_fails",
 ]
 
@@ -36,9 +42,6 @@ REPORT = [
 
 
 def do(args: list[str]) -> int:
-    if WIN:
-        print("Skipping tests on windows due to hangs")
-        return 0
     print(">>>", "\t".join(args), flush=True)
     return call(args, cwd="src")
 
