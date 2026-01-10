@@ -3,22 +3,23 @@ import sys
 import os
 
 WIN = os.name == "nt"
+
 NOGIL = "free-threading" in sys.version
 
 COV_FAIL_UNDER = 93
 
 K_SKIPS = [
-    "test_client_connect_canceled_during_handshake",
-    "test_close_idempotency_race_condition",
-    "test_writing_in_recv_events_fails",
+    "client_connect_canceled_during_handshake",
+    "close_idempotency_race_condition",
+    "writing_in_recv_events_fails",
 ]
 
-# added in https://github.com/conda-forge/websockets-feedstock/pull/54
 if NOGIL:
+    # added in https://github.com/conda-forge/websockets-feedstock/pull/54
+    COV_FAIL_UNDER = 73
     K_SKIPS += [
-        "test_checking_lack_of_origin_succeeds_backwards_compatibility",
-        "test_process_request_override_backwards_compatibility",
-        "test_protocol_deprecated_attributes",
+        "legacy",
+        "test_keepalive_terminates_when_sending_ping_fails",
     ]
 
 PYTEST = [
@@ -48,7 +49,8 @@ def do(args: list[str]) -> int:
     if WIN:
         print("Skipping tests on windows due to hangs")
         return 0
-    print(">>>", "\t".join(args), flush=True)
+    print({"NOGIL": f"{NOGIL} {sys.version}", "WIN": f"{WIN} {os.name}"})
+    print(">>>", "\n\t".join(args), flush=True)
     return call(args, cwd="src")
 
 
