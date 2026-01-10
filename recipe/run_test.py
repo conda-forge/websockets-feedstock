@@ -3,6 +3,7 @@ import sys
 import os
 
 WIN = os.name == "nt"
+NOGIL = "free-threading" in sys.version
 
 COV_FAIL_UNDER = 93
 
@@ -11,6 +12,14 @@ K_SKIPS = [
     "test_close_idempotency_race_condition",
     "test_writing_in_recv_events_fails",
 ]
+
+# added in https://github.com/conda-forge/websockets-feedstock/pull/54
+if NOGIL:
+    K_SKIPS += [
+        "test_checking_lack_of_origin_succeeds_backwards_compatibility",
+        "test_process_request_override_backwards_compatibility",
+        "test_protocol_deprecated_attributes",
+    ]
 
 PYTEST = [
     "coverage",
