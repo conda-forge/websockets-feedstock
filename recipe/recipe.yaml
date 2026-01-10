@@ -17,7 +17,7 @@ source:
     target_directory: src
 
 build:
-  number: 0
+  number: 1
   script:
     - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
@@ -44,14 +44,12 @@ tests:
   - files:
       source:
         - src/tests/
-      recipe:
-        - run_test.py
     requirements:
       run:
         - pytest-cov
         - werkzeug
     script:
-      - python run_test.py
+      file: run_test.py
 
 about:
   license: BSD-3-Clause
