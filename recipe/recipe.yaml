@@ -63,7 +63,7 @@ about:
     based on coroutines, making it easy to write highly concurrent
     applications.
   homepage: https://websockets.readthedocs.io/en/stable/index.html
-  repository: https://github.com/aaugustin/websockets
+  repository: https://github.com/python-websockets/websockets
   documentation: https://websockets.readthedocs.io/en/stable/index.html
 
 extra:
