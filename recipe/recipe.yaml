@@ -26,10 +26,6 @@ requirements:
   build:
     - ${{ compiler("c") }}
     - ${{ stdlib("c") }}
-    - if: build_platform != target_platform
-      then:
-        - python
-        - cross-python_${{ target_platform }}
   host:
     - pip
     - python
@@ -62,9 +58,9 @@ about:
     standard asynchronous I/O framework, it provides a straightforward API
     based on coroutines, making it easy to write highly concurrent
     applications.
-  homepage: https://websockets.readthedocs.io/en/stable/index.html
+  homepage: https://pypi.org/project/websockets
   repository: https://github.com/python-websockets/websockets
-  documentation: https://websockets.readthedocs.io/en/stable/index.html
+  documentation: https://websockets.readthedocs.io
 
 extra:
   recipe-maintainers:
