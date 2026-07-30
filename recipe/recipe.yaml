@@ -19,6 +19,7 @@ source:
 
 build:
   number: 0
+  skip: match(python, "<" ~ python_min)
   script:
     - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
