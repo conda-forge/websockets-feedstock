@@ -2,7 +2,8 @@
 schema_version: 1
 
 context:
-  version: "16.1.1"
+  version: "17.0"
+  python_min: "3.11"
 
 package:
   name: websockets
@@ -10,14 +11,15 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/w/websockets/websockets-${{ version }}.tar.gz
-    sha256: db234eda965dcce15df96bb9709f587cd87d4d52aaf0e80e2f34ec04c7670c57
+    sha256: 6bbe83c4ef52a7533d2d8c6a3512b93722fd0db6bc6bc638d45edd49ef201444
     target_directory: dist
   - url: https://github.com/python-websockets/websockets/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 2ab963cba7902071e9319914e673654e63b4b877f12950a3aa02eb7ccda7b701
+    sha256: d01117def2bf1415adb44da34f08fc0ce217d76ce88177a307dbb31525de61c7
     target_directory: src
 
 build:
   number: 0
+  skip: match(python, "<" ~ python_min)
   script:
     - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
@@ -43,6 +45,7 @@ tests:
     requirements:
       run:
         - pytest-cov
+        - trio
         - werkzeug
     script:
       file: run_test.py
