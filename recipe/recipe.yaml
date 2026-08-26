@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "17.0.1"
+  version: "17.1"
   python_min: "3.11"
 
 package:
@@ -11,10 +11,10 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/w/websockets/websockets-${{ version }}.tar.gz
-    sha256: 5baa9bc0dfbae8c507e51c8cf1b6d4628086f7a87bbd3a9952bd5f035451f1cc
+    sha256: acfea4c20bf54384883ea33b1240fc1db4f52e190823a4e2b334bc3e8bfca96a
     target_directory: dist
   - url: https://github.com/python-websockets/websockets/archive/refs/tags/${{ version }}.tar.gz
-    sha256: d8367de2de217d4f7eb12f3354a3c28a4b9591c8c6755312e19ee836304e3ed0
+    sha256: 35ceb07d65405d36302e4f5c21dd6f2050e0c334929cc9fc40b9c5973ce84bcb
     target_directory: src
 
 build:
