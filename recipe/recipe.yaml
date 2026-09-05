@@ -18,7 +18,7 @@ source:
     target_directory: src
 
 build:
-  number: 0
+  number: 1
   skip: match(python, "<" ~ python_min)
   script:
     - cd dist
