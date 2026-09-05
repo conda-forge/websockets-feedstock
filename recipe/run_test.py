@@ -1,8 +1,9 @@
 from subprocess import call
 import sys
-import os
+import platform
 
-WIN = os.name == "nt"
+WIN = platform.system() == "Windows"
+OSX = platform.system() == "Darwin"
 
 NOGIL = "free-threading" in sys.version
 
@@ -13,6 +14,12 @@ K_SKIPS = [
     "close_idempotency_race_condition",
     "writing_in_recv_events_fails",
 ]
+
+if OSX:
+    K_SKIPS += [
+        # added in https://github.com/conda-forge/websockets-feedstock/pull/62
+        "(test_client and test_reconnect)",
+    ]
 
 if NOGIL:
     # added in https://github.com/conda-forge/websockets-feedstock/pull/54
@@ -49,7 +56,13 @@ def do(args: list[str]) -> int:
     if WIN:
         print("Skipping tests on windows due to hangs")
         return 0
-    print({"NOGIL": f"{NOGIL} {sys.version}", "WIN": f"{WIN} {os.name}"})
+    print(
+        {
+            "NOGIL": f"{NOGIL} {sys.version}",
+            "WIN": f"{WIN} {platform.system()}",
+            "OSX": f"{OSX} {platform.system()}",
+        }
+    )
     print(">>>", "\n\t".join(args), flush=True)
     return call(args, cwd="src")
 

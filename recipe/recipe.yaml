@@ -3,14 +3,13 @@ schema_version: 1
 
 context:
   version: "17.1"
-  python_min: "3.11"
 
 package:
   name: websockets
   version: ${{ version }}
 
 source:
-  - url: https://pypi.org/packages/source/w/websockets/websockets-${{ version }}.tar.gz
+  - url: https://files.pythonhosted.org/packages/source/w/websockets/websockets-${{ version }}.tar.gz
     sha256: acfea4c20bf54384883ea33b1240fc1db4f52e190823a4e2b334bc3e8bfca96a
     target_directory: dist
   - url: https://github.com/python-websockets/websockets/archive/refs/tags/${{ version }}.tar.gz
@@ -18,8 +17,7 @@ source:
     target_directory: src
 
 build:
-  number: 0
-  skip: match(python, "<" ~ python_min)
+  number: 1
   script:
     - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
