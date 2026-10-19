@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "17.2"
+  version: "17.3"
 
 package:
   name: websockets
@@ -10,10 +10,10 @@ package:
 
 source:
   - url: https://files.pythonhosted.org/packages/source/w/websockets/websockets-${{ version }}.tar.gz
-    sha256: 36c2fb94c990cc2545143b12690e2de6c16300f9dbe5b4f33fa300cf57dc8792
+    sha256: 1c7dd93a1c9f89297471493674b1fc1d9467cafd45374f2172213046bdb3a329
     target_directory: dist
   - url: https://github.com/python-websockets/websockets/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 0bc575816ee77a3033a251829ef38bdad78c308b85fdd65ea390c7a131099426
+    sha256: f80496c1d689e629c184055e15e27734251c7214841d486428c15bed185162ee
     target_directory: src
 
 build:
