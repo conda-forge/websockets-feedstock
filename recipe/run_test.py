@@ -19,6 +19,8 @@ if OSX:
     K_SKIPS += [
         # added in https://github.com/conda-forge/websockets-feedstock/pull/62
         "(test_client and test_reconnect)",
+        # added in https://github.com/conda-forge/websockets-feedstock/pull/65
+        "test_keepalive_is_enabled",
     ]
 
 if NOGIL:
