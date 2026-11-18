@@ -17,13 +17,17 @@ source:
     target_directory: src
 
 build:
-  number: 0
+  number: 1
   script:
     - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   build:
+    - if: build_platform != host_platform
+      then: python
+    - if: build_platform != host_platform
+      then: cross-python_${{ host_platform }}
     - ${{ compiler("c") }}
     - ${{ stdlib("c") }}
   host:
